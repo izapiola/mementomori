@@ -49,13 +49,11 @@
       mix-blend-mode: difference;
     }
 
-    .nav-logo {
-      font-family: var(--serif);
-      font-size: 13px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--crema);
-      text-decoration: none;
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
     }
 
     .nav-cta {
@@ -484,7 +482,7 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">Memento Mori Gin</a>
+    <a href="#" class="nav-logo"><img src="img/logo.png" alt="Memento Mori Gin"></a>
     <a href="#producto" class="nav-cta">Comprar</a>
   </nav>
 
@@ -521,8 +519,7 @@
     <div class="product-inner">
 
       <div class="product-image">
-        <!-- Reemplazar con: <img src="botella.jpg" alt="Memento Mori Gin 560ml"> -->
-        <span class="product-placeholder">Foto del producto</span>
+        <img src="img/botella.png" alt="Memento Mori Gin 560ml">
         <div class="product-badge">Lote inaugural</div>
       </div>
 
@@ -558,6 +555,53 @@
         <p class="product-envio">Envío a todo el país · 5–7 días hábiles</p>
       </div>
 
+    </div>
+  </section>
+
+  <!-- PRESENTACIONES -->
+  <section style="background:#FFFFFF; padding:100px 48px;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <p style="font-family:var(--sans); font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--negro); opacity:0.4; margin-bottom:56px;">Las presentaciones</p>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:40px;">
+
+        <div style="display:flex; flex-direction:column; gap:24px;">
+          <div style="background:#F5F0E8; aspect-ratio:3/4; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <img src="img/botella.png" alt="Botella 560ml" style="width:70%; height:100%; object-fit:contain; padding:24px 0;">
+          </div>
+          <div>
+            <p style="font-family:var(--sans); font-size:11px; letter-spacing:0.15em; text-transform:uppercase; opacity:0.4; margin-bottom:8px;">560ml · 42% ABV</p>
+            <p style="font-family:var(--serif); font-size:20px; margin-bottom:16px;">Botella</p>
+            <p style="font-family:var(--serif); font-size:22px; margin-bottom:20px;">$25.000</p>
+            <a href="https://ginmementomori.mitiendanube.com" target="_blank" style="font-family:var(--sans); font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--negro); border:1px solid var(--negro); padding:14px 32px; text-decoration:none; display:inline-block; transition:background 0.2s, color 0.2s;" onmouseover="this.style.background='#0A0A0A';this.style.color='#F5F0E8'" onmouseout="this.style.background='transparent';this.style.color='#0A0A0A'">Comprar</a>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:24px;">
+          <div style="background:#F5F0E8; aspect-ratio:3/4; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <img src="img/combo.png" alt="Botella + Copa" style="width:85%; height:100%; object-fit:contain; padding:24px 0;">
+          </div>
+          <div>
+            <p style="font-family:var(--sans); font-size:11px; letter-spacing:0.15em; text-transform:uppercase; opacity:0.4; margin-bottom:8px;">Botella + Copa</p>
+            <p style="font-family:var(--serif); font-size:20px; margin-bottom:16px;">Combo</p>
+            <p style="font-family:var(--serif); font-size:22px; margin-bottom:4px;">$31.000 <span style="font-family:var(--sans); font-size:13px; opacity:0.45; text-decoration:line-through; font-weight:300;">$35.000</span></p>
+            <p style="font-family:var(--sans); font-size:11px; opacity:0.45; margin-bottom:20px;">Ahorrás $4.000</p>
+            <a href="https://ginmementomori.mitiendanube.com" target="_blank" style="font-family:var(--sans); font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--negro); border:1px solid var(--negro); padding:14px 32px; text-decoration:none; display:inline-block;" onmouseover="this.style.background='#0A0A0A';this.style.color='#F5F0E8'" onmouseout="this.style.background='transparent';this.style.color='#0A0A0A'">Comprar</a>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:24px;">
+          <div style="background:#F5F0E8; aspect-ratio:3/4; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <img src="img/copa.png" alt="Copa Memento Mori" style="width:60%; height:100%; object-fit:contain; padding:24px 0;">
+          </div>
+          <div>
+            <p style="font-family:var(--sans); font-size:11px; letter-spacing:0.15em; text-transform:uppercase; opacity:0.4; margin-bottom:8px;">Copa de cristal</p>
+            <p style="font-family:var(--serif); font-size:20px; margin-bottom:16px;">Copa</p>
+            <p style="font-family:var(--serif); font-size:22px; margin-bottom:20px;">$10.000</p>
+            <a href="https://ginmementomori.mitiendanube.com" target="_blank" style="font-family:var(--sans); font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--negro); border:1px solid var(--negro); padding:14px 32px; text-decoration:none; display:inline-block;" onmouseover="this.style.background='#0A0A0A';this.style.color='#F5F0E8'" onmouseout="this.style.background='transparent';this.style.color='#0A0A0A'">Comprar</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
