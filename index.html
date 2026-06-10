@@ -288,9 +288,10 @@
 
     .spec-value {
       font-family: var(--serif);
-      font-size: 22px;
+      font-size: 42px;
       font-weight: 400;
       color: var(--negro);
+      line-height: 1;
     }
 
     .spec-label {
@@ -300,6 +301,32 @@
       text-transform: uppercase;
       color: var(--negro);
       opacity: 0.4;
+    }
+
+    .product-botanicos {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(10,10,10,0.1);
+    }
+
+    .botanicos-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--negro);
+      opacity: 0.4;
+      margin-bottom: 12px;
+    }
+
+    .botanicos-lista {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--negro);
+      opacity: 0.75;
+      line-height: 1.9;
+      letter-spacing: 0.02em;
     }
 
     .product-lote {
@@ -524,11 +551,14 @@
       </div>
 
       <div class="product-info">
-        <p class="product-eyebrow">Gin de maceración</p>
+        <p class="product-eyebrow">Gin Argentino</p>
         <h2 class="product-name">Memento Mori Gin</h2>
-        <p class="product-origin">Pergamino, Argentina</p>
 
         <div class="product-specs">
+          <div class="spec-item">
+            <span class="spec-value">10</span>
+            <span class="spec-label">Botánicos</span>
+          </div>
           <div class="spec-item">
             <span class="spec-value">560</span>
             <span class="spec-label">ml</span>
@@ -537,13 +567,14 @@
             <span class="spec-value">42%</span>
             <span class="spec-label">ABV</span>
           </div>
-          <div class="spec-item">
-            <span class="spec-value">10</span>
-            <span class="spec-label">Botánicos</span>
-          </div>
         </div>
 
         <p class="product-lote">Lote inaugural · 200 botellas · Maceración 24hs · Sin garnish</p>
+
+        <div class="product-botanicos">
+          <p class="botanicos-label">Los botánicos</p>
+          <p class="botanicos-lista">— — —</p>
+        </div>
 
         <p class="product-price">
           $25.000
