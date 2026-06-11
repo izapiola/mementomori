@@ -510,9 +510,140 @@
         letter-spacing: 0.05em;
       }
     }
+
+    /* ── AGE GATE ── */
+    #age-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(58, 16, 32, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 48px 32px;
+      transition: opacity 0.5s ease;
+    }
+
+    #age-gate.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .ag-logo {
+      height: 44px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.85;
+    }
+
+    .ag-text {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .ag-title {
+      font-family: var(--serif);
+      font-size: clamp(30px, 7vw, 52px);
+      font-weight: 400;
+      color: var(--crema);
+      line-height: 1.1;
+    }
+
+    .ag-sub {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--crema);
+      opacity: 0.55;
+    }
+
+    .ag-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .ag-btn {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--crema);
+      background: transparent;
+      border: 1px solid rgba(245, 240, 232, 0.45);
+      border-radius: 100px;
+      padding: 14px 52px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .ag-btn:hover {
+      background: rgba(245, 240, 232, 0.08);
+      border-color: rgba(245, 240, 232, 0.7);
+    }
+
+    .ag-remember {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .ag-remember input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      accent-color: var(--crema);
+      cursor: pointer;
+    }
+
+    .ag-remember span {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--crema);
+      opacity: 0.45;
+    }
+
+    .ag-denied {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-style: italic;
+      color: var(--crema);
+      opacity: 0.6;
+      text-align: center;
+      display: none;
+    }
   </style>
 </head>
 <body>
+
+  <!-- AGE GATE -->
+  <div id="age-gate">
+    <img class="ag-logo" src="img/logo.png" alt="Memento Mori Gin">
+    <div class="ag-text" id="ag-text">
+      <h2 class="ag-title">¿Sos mayor<br>de 18 años?</h2>
+      <p class="ag-sub">Tenés que ser mayor de edad para ingresar</p>
+    </div>
+    <div class="ag-buttons" id="ag-buttons">
+      <button class="ag-btn" id="ag-yes">Sí</button>
+      <button class="ag-btn" id="ag-no">No</button>
+    </div>
+    <label class="ag-remember" id="ag-remember-row">
+      <input type="checkbox" id="ag-remember">
+      <span>Recordarme</span>
+    </label>
+    <p class="ag-denied" id="ag-denied">Este sitio es sólo para mayores de 18.</p>
+  </div>
 
   <!-- NAV -->
   <nav>
@@ -652,6 +783,33 @@
       © 2023 Memento Mori
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var gate = document.getElementById('age-gate');
+      if (!gate) return;
+
+      if (localStorage.getItem('mm_age_ok') === '1') {
+        gate.style.display = 'none';
+        return;
+      }
+
+      document.getElementById('ag-yes').addEventListener('click', function () {
+        if (document.getElementById('ag-remember').checked) {
+          localStorage.setItem('mm_age_ok', '1');
+        }
+        gate.classList.add('fade-out');
+        setTimeout(function () { gate.style.display = 'none'; }, 500);
+      });
+
+      document.getElementById('ag-no').addEventListener('click', function () {
+        document.getElementById('ag-text').style.display = 'none';
+        document.getElementById('ag-buttons').style.display = 'none';
+        document.getElementById('ag-remember-row').style.display = 'none';
+        document.getElementById('ag-denied').style.display = 'block';
+      });
+    })();
+  </script>
 
 </body>
 </html>
